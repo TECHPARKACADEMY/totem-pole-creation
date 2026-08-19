@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* Custom Blue Header */
+    .service-header-banner {
+        background-color: #003688 !important;
+        background: linear-gradient(135deg, #003688 0%, #002255 100%) 
+    }
+
+    /* Service Card Styling */
+    .service-card {
+        border: 1px solid #e9ecef;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .service-img-wrapper {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .service-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .service-card:hover .service-img {
+        transform: scale(1.08);
+    }
+
+    .service-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: rgba(220, 53, 69, 0.9);
+        color: #ffffff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+        text-transform: uppercase;
+    }
+</style>
+
+<!-- Header Banner (#003688 Blue Theme) -->
+<div class="service-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0">OUR SERVICES</h2>
+    </div>
+</div>
+
+<!-- Services Grid -->
+<div class="container py-5">
+    <div class="row g-4">
+        
+        <!-- 1. Fabrication -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="service-card shadow-sm h-100 d-flex flex-column">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop" 
+                         alt="Fabrication Work" class="service-img">
+                    <span class="service-badge">Structural</span>
+                </div>
+                <div class="p-4 d-flex flex-column flex-grow-1">
+                    <h4 class="fw-bold text-danger mb-2">Fabrication</h4>
+                    <p class="text-secondary small mb-0">Industrial structural steel fabrication, custom welding, and heavy structure execution.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Recruitment Process -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card shadow-sm h-100 d-flex flex-column">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop" 
+                         alt="Recruitment Process" class="service-img">
+                    <span class="service-badge">Staffing</span>
+                </div>
+                <div class="p-4 d-flex flex-column flex-grow-1">
+                    <h4 class="fw-bold text-danger mb-2">Recruitment Process</h4>
+                    <p class="text-secondary small mb-0">End-to-end manpower solutions, talent acquisition, and professional staffing support.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. CCTV -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card shadow-sm h-100 d-flex flex-column">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=800&auto=format&fit=crop" 
+                         alt="CCTV Surveillance" class="service-img">
+                    <span class="service-badge">Security</span>
+                </div>
+                <div class="p-4 d-flex flex-column flex-grow-1">
+                    <h4 class="fw-bold text-danger mb-2">CCTV</h4>
+                    <p class="text-secondary small mb-0">Commercial and domestic CCTV camera installation, surveillance system configuration.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Plumbing -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+            <div class="service-card shadow-sm h-100 d-flex flex-column">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=800&auto=format&fit=crop" 
+                         alt="Plumbing Works" class="service-img">
+                    <span class="service-badge">Utility</span>
+                </div>
+                <div class="p-4 d-flex flex-column flex-grow-1">
+                    <h4 class="fw-bold text-danger mb-2">Plumbing</h4>
+                    <p class="text-secondary small mb-0">Complete commercial and domestic piping, sanitary installations, and maintenance.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Construction -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card shadow-sm h-100 d-flex flex-column">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop" 
+                         alt="Construction Civil Engineering" class="service-img">
+                    <span class="service-badge">Engineering</span>
+                </div>
+                <div class="p-4 d-flex flex-column flex-grow-1">
+                    <h4 class="fw-bold text-danger mb-2">Construction</h4>
+                    <p class="text-secondary small mb-0">Comprehensive civil construction, structural building, and infrastructure planning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Electrical -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card shadow-sm h-100 d-flex flex-column">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=800&auto=format&fit=crop" 
+                         alt="Electrical Power Works" class="service-img">
+                    <span class="service-badge">Power</span>
+                </div>
+                <div class="p-4 d-flex flex-column flex-grow-1">
+                    <h4 class="fw-bold text-danger mb-2">Electrical</h4>
+                    <p class="text-secondary small mb-0">High-voltage wiring, commercial lighting setups, and industrial power installations.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

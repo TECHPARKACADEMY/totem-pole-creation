@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* Custom Blue Header */
+    .contact-header-banner {
+        background-color: #003688 !important;
+    }
+
+    /* Contact Cards Styling */
+    .contact-card {
+        border-radius: 12px;
+        background: #ffffff;
+    }
+
+    .contact-icon-box {
+        width: 45px;
+        height: 45px;
+        background-color: rgba(0, 54, 136, 0.1);
+        color: #003688;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    /* Google Map Styling */
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+        border: 0;
+        border-radius: 12px;
+    }
+
+    /* Bottom CTA Box */
+    .cta-box {
+        background-color: #003688;
+        border-radius: 12px;
+    }
+
+    .btn-whatsapp {
+        background-color: #25D366;
+        color: #ffffff;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 10px 24px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+        background-color: #1eb954;
+        color: #ffffff;
+        transform: translateY(-2px);
+    }
+</style>
+
+<!-- Header Banner (#003688 Blue Theme) -->
+<div class="contact-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0">CONTACT US</h2>
+    </div>
+</div>
+
+<!-- Main Section: Left Details & Right Google Map -->
+<div class="container py-5">
+    <div class="row g-4" data-aos="fade-up">
+        
+        <!-- Left Side: Address & Contact Number -->
+        <div class="col-lg-6">
+            <div class="p-4 bg-white border rounded-3 shadow-sm h-100 contact-card d-flex flex-column justify-content-between">
+                <div>
+                    <!-- Address -->
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="contact-icon-box me-3 mt-1">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-danger mb-2">Official Address</h5>
+                            <p class="text-secondary mb-0 leading-relaxed">
+                                <strong class="text-dark fs-6">Totem Pole Creations Private Limited</strong><br>
+                                No:5, PSK Complex-3441, Kuruchi Nagar,<br>
+                                Mettuppatti, Alangudi Main Road,<br>
+                                Pudukkottai - 622001.
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="text-muted opacity-25 my-4">
+
+                    <!-- Phone Number -->
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="contact-icon-box me-3">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-danger mb-1">Contact Number</h5>
+                            <a href="tel:+919159315915" class="text-decoration-none text-dark fw-bold fs-5">+91 9159315915</a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="d-flex align-items-center">
+                        <div class="contact-icon-box me-3">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-danger mb-1">Email Address</h5>
+                            <a href="mailto:totempolecreations@gmail.com" class="text-decoration-none text-primary fw-semibold">totempolecreations@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Google Map -->
+        <div class="col-lg-6">
+            <div class="map-container shadow-sm h-100 border rounded-3 overflow-hidden">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.837877028169!2d78.8242!3d10.3792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDIyJzQ1LjEiTiA3OMKwNDknMjcuMSJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom CTA Box: All Requirements, One Solution -->
+    <div class="row mt-5" data-aos="fade-up">
+        <div class="col-12">
+            <div class="cta-box p-4 p-md-5 text-white shadow-lg d-flex flex-column flex-md-row align-items-center justify-content-between text-center text-md-start">
+                <div class="mb-3 mb-md-0">
+                    <h3 class="fw-bold text-uppercase mb-2 text-warning">All Requirements, One Solution</h3>
+                    <p class="mb-0 text-light opacity-90 fs-6">Get in touch with us on WhatsApp for quick inquiries and immediate support.</p>
+                </div>
+                <a href="https://wa.me/919159315915?text=Hi,%20I%20have%20an%20enquiry%20regarding%20your%20services." 
+                   target="_blank" 
+                   class="btn btn-whatsapp text-uppercase d-flex align-items-center gap-2 shadow">
+                    <i class="bi bi-whatsapp fs-5"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

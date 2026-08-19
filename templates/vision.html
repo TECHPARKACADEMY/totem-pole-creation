@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Internal CSS for Vision Page -->
+<style>
+    /* Header Banner - Royal Blue Background */
+    .vision-header-banner {
+        background-color: #003688 !important;
+        background: linear-gradient(135deg, #003688 0%, #002255 100%) !important;
+    }
+
+    /* Vision Custom Image Styling (Increased Size) */
+    .vision-top-img {
+        width: 100%;
+        max-width: 420px; /* Increased image size from 280px to 420px */
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s ease;
+    }
+
+    .vision-top-img:hover {
+        transform: scale(1.02);
+    }
+
+    /* Strategic Roadmap Box Styling */
+    .roadmap-card {
+        border-left: 4px solid #003688 !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .roadmap-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12) !important;
+    }
+</style>
+
+<!-- Blue Banner Header -->
+<div class="vision-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0 text-white">VISION - FUTURE</h2>
+    </div>
+</div>
+
+<!-- Main Vision Section -->
+<div class="container py-5">
+    <div class="row align-items-center g-5">
+        
+        <!-- LEFT SIDE: vision.png Image (Increased Container Grid) -->
+        <div class="col-lg-5 text-center text-lg-start" data-aos="fade-right">
+            <img src="{{ url_for('static', filename='images/vision.png') }}" alt="Vision Future" class="vision-top-img img-fluid">
+        </div>
+
+        <!-- RIGHT SIDE: Content & Roadmap Card -->
+        <div class="col-lg-7" data-aos="fade-left">
+            <h3 class="fw-bold text-dark mb-3">Empowering Business Growth</h3>
+            <p class="lead text-secondary mb-4">
+                To increase Customers, Sales, and Revenue for affiliated companies (Micro, Small, Medium, and Large Enterprises).
+            </p>
+
+            <!-- Strategic Roadmap Card -->
+            <div class="roadmap-card p-4 bg-white border rounded-3 shadow-sm">
+                <h5 class="fw-bold text-danger mb-2 d-flex align-items-center gap-2">
+                    <i class="fa-solid fa-lightbulb"></i> Strategic Roadmap
+                </h5>
+                <p class="text-secondary mb-0 lh-base">
+                    We formulate a <strong>NEW CHAPTER</strong> in your advertisements, which are specifically Branded and hold Symbolic Significance for your market presence.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

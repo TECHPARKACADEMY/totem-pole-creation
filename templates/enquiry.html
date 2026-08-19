@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .enquiry-header-banner {
+        background-color: #003688 !important;
+    }
+
+    .enquiry-card {
+        border-radius: 12px;
+        background: #ffffff;
+    }
+
+    .form-control:focus {
+        border-color: #003688;
+        box-shadow: 0 0 0 0.25rem rgba(0, 54, 136, 0.15);
+    }
+
+    .btn-submit-enquiry {
+        background-color: #dc3545;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-submit-enquiry:hover {
+        background-color: #bb2d3b;
+        transform: translateY(-2px);
+    }
+</style>
+
+<!-- Header Banner (#003688 Blue Theme) -->
+<div class="enquiry-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0">GET IN TOUCH / ENQUIRY</h2>
+    </div>
+</div>
+
+<!-- Enquiry Form Section -->
+<div class="container py-5">
+    <div class="row justify-content-center" data-aos="zoom-in">
+        <div class="col-md-8 col-lg-7">
+            <div class="card enquiry-card p-4 p-md-5 border-0 shadow">
+                <h4 class="fw-bold text-dark mb-4 text-center">Send Us a Message</h4>
+                
+                <form id="whatsappEnquiryForm" onsubmit="sendToWhatsApp(event)">
+                    
+                    <!-- Name Input -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">Your Name</label>
+                        <input type="text" id="user_name" class="form-control form-control-lg fs-6" placeholder="Enter your full name" required>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">Email Address</label>
+                        <input type="email" id="user_email" class="form-control form-control-lg fs-6" placeholder="Enter your email" required>
+                    </div>
+
+                    <!-- Phone Input -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">Phone Number</label>
+                        <input type="tel" id="user_phone" class="form-control form-control-lg fs-6" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <!-- Message Area -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-secondary">Message / Enquiry</label>
+                        <textarea id="user_message" class="form-control form-control-lg fs-6" rows="4" placeholder="How can we help you?" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-danger btn-submit-enquiry w-100 fw-bold text-uppercase shadow-sm">
+                        <i class="bi bi-whatsapp me-2"></i>Send via WhatsApp
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    // Form Field Values
+    const name = document.getElementById('user_name').value;
+    const email = document.getElementById('user_email').value;
+    const phone = document.getElementById('user_phone').value;
+    const message = document.getElementById('user_message').value;
+
+    // Target WhatsApp Number
+    const targetPhone = "919159315915";
+
+    // Formatted WhatsApp Text
+    const whatsappText = `*New Website Enquiry*%0A%0A` +
+        `*Name:* ${encodeURIComponent(name)}%0A` +
+        `*Email:* ${encodeURIComponent(email)}%0A` +
+        `*Phone:* ${encodeURIComponent(phone)}%0A` +
+        `*Message:* ${encodeURIComponent(message)}`;
+
+    // Redirect to WhatsApp
+    const whatsappURL = `https://wa.me/${targetPhone}?text=${whatsappText}`;
+    window.open(whatsappURL, '_blank');
+}
+</script>
+
+{% endblock %}

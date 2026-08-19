@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* Full Width Catalog Banner Styles with Height Increase */
+    .catalog-full-section {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        overflow: hidden;
+    }
+
+    .catalog-full-img {
+        width: 100% !important;
+        height: 400px !important; /* Height-ai nandraga increase panniyulllom */
+        display: block;
+        object-fit: fill; /* Image aspect ratio flexible-aah full height-ukum stretch aagum */
+    }
+
+    /* Mobile screen-il kuraivaaga kaatta media query */
+    @media (max-width: 768px) {
+        .catalog-full-img {
+            height: 280px !important;
+        }
+    }
+</style>
+<!-- HERO BANNER SECTION (LEFT ALIGNED TEXT FOR CLEAR BILLBOARD VIEW) -->
+<section class="hero-billboard-section position-relative d-flex align-items-center">
+    <div class="container position-relative z-2 py-5" data-aos="fade-right">
+        <div class="row">
+            <!-- Left 6 Columns for Text, Leaving Right Side Free for Billboard -->
+            <div class="col-lg-6 text-start text-white">
+                <h1 class="hero-title fw-extrabold text-uppercase text-white">
+                    WE BUILD <br>
+                    <span class="text-danger">BRANDS</span> <br>
+                    THAT BUILD YOUR BUSINESS
+                </h1>
+                <p class="hero-subtitle text-light opacity-90 my-3 fw-semibold">
+                    Advertising | Branding | Design | Printing | Fabrication | Construction | Electrical | Plumbing | Projects
+                </p>
+                <a href="{{ url_for('services') }}" class="btn btn-danger btn-lg text-uppercase fw-bold rounded-1 px-4 py-2 mt-2 shadow">
+                    EXPLORE OUR SERVICES
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INFINITE SCROLLING TICKER WITH DYNAMIC HOVER & ICONS -->
+<section class="service-ticker-section py-4 bg-light overflow-hidden">
+    <div class="ticker-wrapper">
+        <div class="ticker-track">
+            
+            <!-- SET 1 -->
+            <div class="service-ticker-card">
+                <i class="bi bi-megaphone-fill service-icon"></i>
+                <span class="service-title">Advertising</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-pen-fill service-icon"></i>
+                <span class="service-title">Branding</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-palette-fill service-icon"></i>
+                <span class="service-title">Graphic Design</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-printer-fill service-icon"></i>
+                <span class="service-title">Printing</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-tools service-icon"></i>
+                <span class="service-title">Fabrication</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-house-door-fill service-icon"></i>
+                <span class="service-title">Construction</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-lightning-charge-fill service-icon"></i>
+                <span class="service-title">Electrical</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-droplet-fill service-icon"></i>
+                <span class="service-title">Plumbing</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-kanban-fill service-icon"></i>
+                <span class="service-title">Projects</span>
+            </div>
+
+            <!-- DUPLICATE SET 2 FOR INFINITE LOOPING -->
+            <div class="service-ticker-card">
+                <i class="bi bi-megaphone-fill service-icon"></i>
+                <span class="service-title">Advertising</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-pen-fill service-icon"></i>
+                <span class="service-title">Branding</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-palette-fill service-icon"></i>
+                <span class="service-title">Graphic Design</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-printer-fill service-icon"></i>
+                <span class="service-title">Printing</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-tools service-icon"></i>
+                <span class="service-title">Fabrication</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-house-door-fill service-icon"></i>
+                <span class="service-title">Construction</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-lightning-charge-fill service-icon"></i>
+                <span class="service-title">Electrical</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-droplet-fill service-icon"></i>
+                <span class="service-title">Plumbing</span>
+            </div>
+            <div class="service-ticker-card">
+                <i class="bi bi-kanban-fill service-icon"></i>
+                <span class="service-title">Projects</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT US SECTION WITH DARK OVERLAY CARD -->
+<section class="about-us-section py-5 bg-light">
+    <div class="container py-3">
+        <div class="row align-items-center g-4">
+            
+            <!-- LEFT COLUMN: ABOUT CONTENT -->
+            <div class="col-lg-6">
+                <h2 class="about-title fw-extrabold text-danger text-uppercase mb-3">
+                    ABOUT US
+                </h2>
+                <p class="about-description text-secondary leading-relaxed fs-6 mb-4">
+                    <strong>Totem Pole Creations Private Limited</strong> is a dynamic and innovative company delivering end-to-end solutions in Advertising, Branding, Design, Printing, Fabrication, Construction, Electrical, Plumbing and Projects. We combine creativity with technology to build strong brands and long-term relationships.
+                
+                <br>
+                <br>Our commitment is to create meaningful value for our clients through reliable services, creative solutions and seamless project execution. We continuously strive to grow, innovate and build lasting partnerships based on trust and excellence.</p>
+                <a href="{{ url_for('about') }}" class="btn btn-danger text-uppercase fw-bold px-4 py-2 rounded-1 shadow-sm">
+                    KNOW MORE
+                </a>
+            </div>
+
+            <!-- RIGHT COLUMN: OVERLAY CARD WITH IMAGE BACKGROUND -->
+            <div class="col-lg-6">
+                <div class="about-card-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
+                    <img src="{{ url_for('static', filename='images/pg about.png') }}" alt="Totem Pole Creations Building" class="about-card-img w-100 d-block">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FULL WIDTH CATALOG BANNER SECTION -->
+<section class="catalog-full-section my-4">
+    <div class="w-100 p-0">
+        <img src="{{ url_for('static', filename='images/catlog file.jpg') }}" 
+             alt="Catalog Banner" 
+             class="catalog-full-img shadow-sm">
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,557 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Internal CSS for Portfolio Page -->
+<style>
+    /* Header Banner - Royal Blue Background */
+    .portfolio-header-banner {
+        background-color: #003688 !important;
+        background: linear-gradient(135deg, #003688 0%, #002255 100%) !important;
+    }
+
+    /* Filter Nav Buttons */
+    .btn-filter {
+        border: 2px solid #003688;
+        color: #003688;
+        font-weight: 600;
+        padding: 8px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-filter:hover, .btn-filter.active {
+        background-color: #003688;
+        color: #ffffff !important;
+        box-shadow: 0 4px 10px rgba(0, 54, 136, 0.3);
+    }
+
+    /* Portfolio Cards */
+    .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .portfolio-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .portfolio-item:hover .portfolio-img {
+        transform: scale(1.08);
+    }
+
+    .portfolio-overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 54, 136, 0.88);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+
+    /* Section Category Badge */
+    .category-badge {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+</style>
+
+<!-- Blue Banner Header -->
+<div class="portfolio-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0 text-white">OUR PORTFOLIO</h2>
+    </div>
+</div>
+
+<!-- Main Portfolio Section -->
+<div class="container py-5">
+    
+    <!-- Filter Navigation Buttons -->
+    <div class="text-center mb-5" data-aos="fade-up">
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a href="{{ url_for('portfolio', category='outdoor') }}" 
+               class="btn-filter {% if request.args.get('category', 'outdoor') == 'outdoor' %}active{% endif %}">
+               <i class="fa-solid fa-bullhorn me-1"></i> OUTDOOR ADVERTISING
+            </a>
+            <a href="{{ url_for('portfolio', category='indoor') }}" 
+               class="btn-filter {% if request.args.get('category') == 'indoor' %}active{% endif %}">
+               <i class="fa-solid fa-lightbulb me-1"></i> INDOOR ADVERTISING
+            </a>
+            <a href="{{ url_for('portfolio', category='projects') }}" 
+               class="btn-filter {% if request.args.get('category') == 'projects' %}active{% endif %}">
+               <i class="fa-solid fa-briefcase me-1"></i> COMPLETED PROJECTS
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- 1. OUTDOOR ADVERTISING SECTION (16 Individual Items) -->
+    <!-- ==================================================== -->
+    {% if request.args.get('category', 'outdoor') == 'outdoor' %}
+    <div data-aos="fade-up">
+        <div class="text-center mb-4">
+            <span class="badge bg-danger category-badge px-3 py-2 text-uppercase mb-2">Outdoor Category</span>
+            <h3 class="fw-bold text-dark">Outdoor Advertising Solutions</h3>
+            <p class="text-secondary">High-impact physical advertisements for maximum visibility.</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- 1. Bill Board -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/billboard.png') }}" alt="Bill Board Advertisement" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Bill Board Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Wallscape -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/wallscape.png') }}" alt="Wallscape Advertisement" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Wallscape Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Roof Top -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/rooftop.png') }}" alt="Roof Top Advertisement" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Roof Top Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Hoarding -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/hoarding.png') }}" alt="Hoarding Advertisement" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Hoarding Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Totem Pole -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/SignBoard.png') }}" alt="Totem Pole Sign Board" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Totem Pole / Sign Board</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Traffic Signal Pole -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/Traffic.png') }}" alt="Traffic Signal Pole" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Traffic Signal Pole</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Walking Bill Board -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/WalkingBillBoard.png') }}" alt="Walking Bill Board" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Walking Bill Board</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Transport -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/Transport.png') }}" alt="Transport Advertisement" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Transport Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Wall Painting -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/WallPainting.png') }}" alt="Wall Painting" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Wall Painting Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Barricade -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/Barricade.png') }}" alt="Barricade Advertisement" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Barricade Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Police Booth -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/policeBooth.png') }}" alt="Police Booth" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Police Booth Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Lighting Board -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/LightingBoard.png') }}" alt="Lighting Board" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Lighting Board Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. Bow Flags -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/BowFlags.png') }}" alt="Bow Flags" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Bow Flags Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. Auto -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/Auto.png') }}" alt="Auto Advertisement" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Auto Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15. Event Arch -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/EventArch.png') }}" alt="Event Arch" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Event Arch Advertisement</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16. Flyers / Posters / Newspaper -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/FlyersandPosters.png') }}" alt="Flyers and Posters" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">OUTDOOR</span>
+                        <h6 class="fw-bold mb-0">Flyers / Posters / Newspaper</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- =================================================== -->
+    <!-- 2. INDOOR ADVERTISING SECTION (8 Individual Items)  -->
+    <!-- =================================================== -->
+    {% if request.args.get('category') == 'indoor' %}
+    <div data-aos="fade-up">
+        <div class="text-center mb-4">
+            <span class="badge bg-danger category-badge px-3 py-2 text-uppercase mb-2">Indoor Category</span>
+            <h3 class="fw-bold text-dark">Indoor Advertising & Services</h3>
+            <p class="text-secondary">Targeted branding, commercial setups, and internal advertising media.</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- 1. Corporate Needs -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/corporateneeds.png') }}" alt="Corporate Needs" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Corporate Needs</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Branding -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/branding.png') }}" alt="Branding" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Branding Solutions</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Television Commercial -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/television.png') }}" alt="Television Commercial" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Television Commercial</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Photoshoot -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/photoshoot.png') }}" alt="Photoshoot" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Photoshoot</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Printing -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/printing.png') }}" alt="Printing" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Printing Services</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Social Media Promotion -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/media promotion.png') }}" alt="Social Media Promotion" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Social Media Promotion</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Graphic Designs -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/graphic design.png') }}" alt="Graphic Designs" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Graphic Designs</h6>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Constructing Solution -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/constructing.png') }}" alt="Constructing Solution" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">INDOOR</span>
+                        <h6 class="fw-bold mb-0">Constructing Solution</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- ==================================================== -->
+    <!-- 3. COMPLETED PROJECTS SECTION (12 Individual Items) -->
+    <!-- ==================================================== -->
+    {% if request.args.get('category') == 'projects' %}
+    <div data-aos="fade-up">
+        <div class="text-center mb-4">
+            <span class="badge bg-danger category-badge px-3 py-2 text-uppercase mb-2">Projects Gallery</span>
+            <h3 class="fw-bold text-dark">Executed Structural & On-Site Projects</h3>
+            <p class="text-secondary">Showcasing 12 of our major completed installations & fabrications.</p>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- Project 1 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/one.jpeg') }}" alt="Project 1" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 1</span>
+                        <h6 class="fw-bold mb-1">Traffic Signal Installation</h6>
+                        <p class="small mb-0">16 Blinkers setup</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/two.jpeg') }}" alt="Project 2" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 2</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/three.jpeg') }}" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 3</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/four.jpeg') }}" alt="Project 4" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 4</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/five.jpeg') }}" alt="Project 5" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 5</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/six.jpeg') }}" alt="Project 6" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 6</span>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/seven.jpeg') }}" alt="Project 7" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 7</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/eight.jpeg') }}" alt="Project 8" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 8</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/nine.jpeg') }}" alt="Project 9" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 9</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/ten.jpeg') }}" alt="Project 10" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 10</span>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/eleven.jpeg') }}" alt="Project 11" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 11</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 12 -->
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="portfolio-item bg-white border">
+                    <img src="{{ url_for('static', filename='images/twelve.jpeg') }}" alt="Project 12" class="portfolio-img">
+                    <div class="portfolio-overlay text-white">
+                        <span class="badge bg-danger mb-2">PROJECT 12</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

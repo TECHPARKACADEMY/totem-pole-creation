@@ -1,0 +1,440 @@
+/* ==========================================================================
+   TOTEM POLE CREATIONS PRIVATE LIMITED - COMPLETE OFFICIAL STYLESHEET
+   ========================================================================== */
+
+/* 1. Root Color Variables & Theme Setup */
+:root {
+    --primary-red: #d32f2f;
+    --dark-red: #b71c1c;
+    --accent-red: #ff1744;
+    --bg-dark: #121619;
+    --bg-card-dark: #1e1e1e;
+    --bg-light: #f8f9fa;
+    --text-dark: #111111;
+    --text-light: #ffffff;
+    --text-muted: #6c757d;
+    --transition-fast: all 0.3s ease-in-out;
+}
+
+/* 2. Global Resets & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+/* 3. Navigation Bar & Header Fixes (Exact Reference Match) */
+.navbar, 
+nav.navbar,
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+/* Strict Logo Height Constraint to Avoid Overflow */
+.header-logo-img {
+    height: 55px !important;
+    max-height: 55px !important;
+    width: auto !important;
+    object-fit: contain;
+    display: block;
+}
+
+/* Menu Links Styling */
+.navbar-light .navbar-nav .nav-link {
+    color: #111111 !important;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary-red) !important;
+}
+
+/* Get A Quote Header Button */
+.btn-get-quote {
+    background-color: var(--primary-red) !important;
+    border-color: var(--primary-red) !important;
+    color: var(--text-light) !important;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.btn-get-quote:hover {
+    background-color: var(--dark-red) !important;
+    border-color: var(--dark-red) !important;
+}
+
+/* 4. Hero Section with Billboard Overlay */
+.hero-billboard-section {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    background-color: #121619;
+    background-image:  url('../images/background.png') !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+}
+
+/* 5. Nine-Column Services Icon Row */
+@media (min-width: 992px) {
+    .row-cols-md-9 > * {
+        flex: 0 0 auto;
+        width: 11.111111%;
+    }
+}
+
+.service-icon-box {
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+.service-icon-box:hover {
+    transform: translateY(-4px);
+}
+
+.service-icon-title {
+    font-size: 0.72rem;
+    color: #333333;
+    letter-spacing: 0.3px;
+}
+
+/* 6. About Us Section & Overlay Card */
+.about-card-container {
+    background-color: var(--bg-dark);
+    min-height: 320px;
+}
+
+.about-card-container img {
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+    opacity: 0.85;
+}
+
+.about-overlay-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(18, 22, 25, 0.92);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 7. Bottom Cards & Hover Animations */
+.card {
+    border: none;
+    border-radius: 8px;
+    transition: var(--transition-fast);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.15) !important;
+}
+
+/* 8. Responsive Adjustments */
+@media (max-width: 991px) {
+    .header-logo-img {
+        height: 45px !important;
+    }
+
+    .about-overlay-info {
+        width: 100%;
+        position: relative;
+        background: var(--bg-dark);
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+/* ==========================================================================
+   BRAND TEXT BESIDE LOGO (2-LINES ALIGNMENT)
+   ========================================================================== */
+
+.brand-text-container {
+    line-height: 1.1;
+    text-align: left;
+}
+
+/* First Line Text (Bold Red / Dark Accent) */
+.brand-title-line1 {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #d32f2f; /* Red Color */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Second Line Text (Subtle Dark Grey / Black) */
+.brand-title-line2 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #111111; /* Dark Text Color */
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 576px) {
+    .brand-title-line1 {
+        font-size: 0.8rem;
+    }
+    .brand-title-line2 {
+        font-size: 0.6rem;
+    }
+}
+/* ==========================================================================
+   TICKER CARDS: RED SHADOW & FULL RED HOVER TRANSITION
+   ========================================================================== */
+
+.service-ticker-section {
+    position: relative;
+    width: 100%;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    animation: tickerScroll 25s linear infinite;
+}
+
+/* Mouse Hover-il Animation Pause Aagum */
+.ticker-wrapper:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+/* Card Normal State with Soft Red Shadow */
+.service-ticker-card {
+    min-width: 180px;
+    padding: 22px 15px;
+    background: #ffffff;
+    border: 1px solid rgba(211, 47, 47, 0.25);
+    border-radius: 10px;
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Default Soft Red Shadow */
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.20);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.service-icon {
+    font-size: 2.2rem;
+    color: #d32f2f;
+    margin-bottom: 8px;
+    transition: color 0.3s ease-in-out;
+}
+
+.service-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #111111;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Touch / Hover State: Full Box Red-a Maarum & Text/Icon White-a Maarum */
+.service-ticker-card:hover,
+.service-ticker-card:active {
+    background-color: #d32f2f !important;
+    border-color: #d32f2f !important;
+    transform: translateY(-6px);
+    
+    /* Stronger Glowing Red Shadow on Hover */
+    box-shadow: 0 10px 25px rgba(211, 47, 47, 0.45);
+}
+
+.service-ticker-card:hover .service-icon,
+.service-ticker-card:hover .service-title,
+.service-ticker-card:active .service-icon,
+.service-ticker-card:active .service-title {
+    color: #ffffff !important; /* Text and Icon become Pure White */
+}
+
+/* Continuous Animation Keyframes */
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+/* ==========================================================================
+   ABOUT IMAGE CARD STYLING (FULL IMAGE DISPLAY)
+   ========================================================================== */
+
+.about-card-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+}
+
+.about-card-img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+@media (max-width: 767px) {
+    .about-card-img {
+        height: 240px;
+    }
+}
+/* ==========================================================================
+   FOOTER / BOTTOM NAVBAR WHITE THEME OVERRIDE
+   ========================================================================== */
+footer h5 {
+    color: #d32f2f !important; /* Pure Red Headings */
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+}
+
+.footer-contact-details i {
+    min-width: 18px; /* Alignment icon shift aagadhirukka */
+    text-align: center;
+}
+
+.footer-contact-details a:hover {
+    color: #d32f2f !important;
+}
+
+footer, 
+.footer,
+footer.bg-dark,
+.footer-section {
+    background-color: #ffffff !important;
+    color: #222222 !important;
+    border-top: 2px solid #e9ecef;
+}
+
+/* Footer Section Headings */
+footer h5,
+footer h4,
+.footer h5,
+.footer h4 {
+    color: #111111 !important;
+    font-weight: 700;
+}
+
+/* Company Title Line */
+footer .text-danger,
+.footer-brand-title {
+    color: #d32f2f !important;
+}
+
+/* Subtext & Paragraphs */
+footer p,
+.footer p,
+footer span,
+.footer span {
+    color: #555555 !important;
+}
+
+/* Quick Links Styling */
+footer a,
+.footer a,
+footer .list-unstyled a {
+    color: #444444 !important;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+footer a:hover,
+.footer a:hover {
+    color: #d32f2f !important;
+    text-decoration: underline;
+}
+
+/* Bottom Divider Line */
+footer hr,
+.footer hr {
+    border-color: #e0e0e0 !important;
+    opacity: 0.8 !important;
+}
+
+/* Bottom Copyright Text */
+footer .copyright,
+footer .small {
+    color: #666666 !important;
+}
+
+/* ==========================================================================
+   FOOTER CONTACT INFORMATION ALIGNMENT FIX
+   ========================================================================== */
+
+.footer-contact-list div {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact-list i {
+    min-width: 20px; /* Icons alignment maramal irukka fixed width */
+    text-align: center;
+}
+
+.footer-contact-list span, 
+.footer-contact-list a {
+    line-height: 1.5;
+    color: #444444 !important;
+    word-break: break-word;
+}
+
+.footer-contact-list a:hover {
+    color: #d32f2f !important;
+}

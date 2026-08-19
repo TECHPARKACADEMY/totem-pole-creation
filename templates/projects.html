@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Internal CSS for Projects Page -->
+<style>
+    /* Header Banner - Royal Blue Background */
+    .projects-header-banner {
+        background-color: #003688 !important;
+        background: linear-gradient(135deg, #003688 0%, #002255 100%) !important;
+    }
+
+    /* Projects Stat Card Styling */
+    .project-card {
+        border-bottom: 4px solid #003688 !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12) !important;
+    }
+
+    /* Custom Button Hover Effect */
+    .btn-project {
+        border-color: #003688;
+        color: #003688;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-project:hover {
+        background-color: #003688;
+        color: #ffffff;
+    }
+</style>
+
+<!-- Blue Banner Header -->
+<div class="projects-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0 text-white">PROJECTS OVERVIEW</h2>
+    </div>
+</div>
+
+<!-- Main Projects Section -->
+<div class="container py-5">
+    
+    <!-- Optional Subtitle -->
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h3 class="fw-bold text-dark">Our Project Categories</h3>
+        <p class="text-secondary">Comprehensive execution across outdoor ads, indoor advertising, and major structural projects.</p>
+    </div>
+
+    <!-- 3 Overview Cards -->
+    <div class="row g-4 text-center justify-content-center">
+        
+        <!-- Outdoor Ads Box -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="p-4 bg-white border rounded-3 shadow-sm project-card h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <i class="fa-solid fa-rectangle-ad text-danger fs-1 mb-3"></i>
+                    <h2 class="text-danger fw-bold display-5 mb-2">23</h2>
+                    <h5 class="fw-bold text-dark mb-3">Outdoor Ads Sections</h5>
+                    <p class="text-muted small">Hoardings, billboards, highway displays, and high-impact physical marketing units.</p>
+                </div>
+                <div>
+                    <a href="{{ url_for('portfolio') }}" class="btn btn-project btn-sm mt-3 px-4 py-2 rounded-pill">VIEW DETAILS</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indoor Ads Box -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="p-4 bg-white border rounded-3 shadow-sm project-card h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <i class="fa-solid fa-shop text-danger fs-1 mb-3"></i>
+                    <h2 class="text-danger fw-bold display-5 mb-2">2</h2>
+                    <h5 class="fw-bold text-dark mb-3">Indoor Ads Sections</h5>
+                    <p class="text-muted small">Malls, retail display boards, branding materials, and interior signage setups.</p>
+                </div>
+                <div>
+                    <a href="{{ url_for('portfolio') }}" class="btn btn-project btn-sm mt-3 px-4 py-2 rounded-pill">VIEW DETAILS</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Major Projects Box -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="p-4 bg-white border rounded-3 shadow-sm project-card h-100 d-flex flex-column justify-content-between">
+                <div>
+                    <i class="fa-solid fa-helmet-safety text-danger fs-1 mb-3"></i>
+                    <h2 class="text-danger fw-bold display-5 mb-2">4</h2>
+                    <h5 class="fw-bold text-dark mb-3">Projects Sections</h5>
+                    <p class="text-muted small">Traffic blinkers, police booths, fabrication, and core structural installation assignments.</p>
+                </div>
+                <div>
+                    <a href="{{ url_for('portfolio') }}" class="btn btn-project btn-sm mt-3 px-4 py-2 rounded-pill">VIEW DETAILS</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Totem Pole Creations Private Limited{% endblock %}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS (For Footer Address, Phone, Email Icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-light">
+
+    <!-- WHITE NAVBAR WITH FIXED LOGO HEIGHT -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-2 border-bottom shadow-sm">
+        <div class="container-fluid px-lg-5 d-flex align-items-center justify-content-between">
+            
+            <!-- Company Logo with fixed container -->
+            <a class="navbar-brand d-flex align-items-center py-0 my-0 text-decoration-none" href="{{ url_for('home') }}">
+                <!-- Logo Image -->
+                <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Totem Pole Creations" class="header-logo-img me-2">
+                
+                <!-- Company Name (2 Lines) -->
+                <div class="brand-text-container d-flex flex-column justify-content-center">
+                    <span class="brand-title-line1">TOTEM POLE CREATIONS</span>
+                    <span class="brand-title-line2">PRIVATE LIMITED</span>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu Navigation Links -->
+            <div class="collapse navbar-collapse" id="topNavbar">
+                <ul class="navbar-nav ms-auto align-items-center fw-bold gap-1 gap-lg-2 my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('home') }}">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('about') }}">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('mission') }}">MISSION</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('vision') }}">VISION FUTURE</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('milestones') }}">MILESTONES</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('projects') }}">PROJECTS</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('portfolio') }}">PORTFOLIO</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('services') }}">SERVICES</a></li>
+                    <li class="nav-item"><a class="nav-link text-uppercase px-2" href="{{ url_for('contacts') }}">CONTACTS</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-danger btn-get-quote text-uppercase px-3 py-2 fw-bold text-white" href="{{ url_for('enquiry') }}">GET A QUOTE</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Main Dynamic Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER SECTION WITH RED HEADINGS & ALIGNED ADDRESS -->
+    <footer class="bg-white text-dark py-5 border-top">
+        <div class="container">
+            <div class="row g-4">
+                
+                <!-- COLUMN 1: COMPANY BRAND -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold text-danger text-uppercase mb-3">TOTEM POLE CREATIONS PVT LTD</h5>
+                    <p class="text-secondary small lh-base">
+                        We build BRANDS that build your business. Dynamic & innovative service providers.
+                    </p>
+                </div>
+
+                <!-- COLUMN 2: NAVIGATION (RED HEADING & FIXED contacts ENDPOINT) -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold text-danger mb-3">Navigation</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small">
+                        <li><a href="{{ url_for('about') }}" class="text-secondary text-decoration-none">About Us</a></li>
+                        <li><a href="{{ url_for('services') }}" class="text-secondary text-decoration-none">Our Services</a></li>
+                        <li><a href="{{ url_for('portfolio') }}" class="text-secondary text-decoration-none">Our Portfolio</a></li>
+                        <li><a href="{{ url_for('contacts') }}" class="text-secondary text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONTACT INFORMATION (RED HEADING & ALIGNED DETAILS) -->
+                <div class="col-lg-5 col-md-12">
+                    <h5 class="fw-bold text-danger mb-3">Contact Information</h5>
+                    
+                    <div class="footer-contact-details d-flex flex-column gap-2">
+                        <!-- Address Row -->
+                        <div class="d-flex align-items-start gap-2">
+                            <i class="bi bi-geo-alt-fill text-danger fs-6 mt-1"></i>
+                            <span class="text-secondary small lh-sm">
+                                No:5, PSK Complex-3441, Kuruchi Nagar,<br>
+                                Pudukkottai – 622001.
+                            </span>
+                        </div>
+
+                        <!-- Phone Row -->
+                        <div class="d-flex align-items-center gap-2 mt-1">
+                            <i class="bi bi-telephone-fill text-danger fs-6"></i>
+                            <a href="tel:+919159315915" class="text-secondary small text-decoration-none">
+                                +91 9159315915 / +91 9025939569
+                            </a>
+                        </div>
+
+                        <!-- Email Row -->
+                        <div class="d-flex align-items-center gap-2 mt-1">
+                            <i class="bi bi-envelope-fill text-danger fs-6"></i>
+                            <a href="mailto:totempolecreations@gmail.com" class="text-secondary small text-decoration-none">
+                                totempolecreations@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-4 text-secondary opacity-25">
+
+            <!-- COPYRIGHT -->
+            <div class="row">
+                <div class="col text-center">
+                    <p class="text-secondary small mb-0">
+                        &copy; 2026 Totem Pole Creations Private Limited. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & AOS Animation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        AOS.init({ duration: 900, once: true });
+    </script>
+</body>
+</html>

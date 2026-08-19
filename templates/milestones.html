@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Internal CSS for Milestones Page -->
+<style>
+    /* Header Banner - Royal Blue Background */
+    .milestones-header-banner {
+        background-color: #003688 !important;
+        background: linear-gradient(135deg, #003688 0%, #002255 100%) !important;
+    }
+
+    /* Milestone Custom Image Styling */
+    .milestone-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .milestone-img:hover {
+        transform: scale(1.01);
+    }
+
+    /* Right Side Container Box - Compact Layout */
+    .milestone-right-box {
+        border-left: 4px solid #003688 !important;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Natural Compact Layout */
+    }
+</style>
+
+<!-- Blue Banner Header -->
+<div class="milestones-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0 text-white">COMPANY MILESTONES</h2>
+    </div>
+</div>
+
+<!-- Main Content Section -->
+<div class="container py-5">
+    <div class="row g-4 align-items-center">
+        
+        <!-- LEFT SIDE: mile.png Image -->
+        <div class="col-lg-6" data-aos="flip-left">
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='images/mile.png') }}" alt="Company Milestones" class="milestone-img border border-2 border-danger p-1 bg-white">
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE: Compact Content (No Unnecessary Gap) -->
+        <div class="col-lg-6" data-aos="flip-right">
+            <div class="p-4 bg-white border rounded-3 shadow-sm milestone-right-box">
+                
+                <!-- Project Sign-Up Section -->
+                <div class="mb-3">
+                    <span class="badge bg-dark mb-3 px-3 py-2 fs-6">PROJECT SIGN-UP</span>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2 d-flex align-items-center">
+                            <i class="fa-solid fa-circle-check text-danger fs-5 me-2"></i>
+                            <span><strong>Project 1:</strong> Traffic Blinker Signal Poles Installation (16 nos)</span>
+                        </li>
+                        <li class="mb-2 d-flex align-items-center">
+                            <i class="fa-solid fa-circle-check text-danger fs-5 me-2"></i>
+                            <span><strong>Project 2:</strong> Police Booth Installation (2 nos)</span>
+                        </li>
+                        <li class="mb-2 d-flex align-items-center">
+                            <i class="fa-solid fa-circle-check text-danger fs-5 me-2"></i>
+                            <span><strong>Project 3:</strong> Hoardings / Billboards Installation (10 nos)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Paragraph Section (Direct Continuation with Optimal Gap) -->
+                <div class="pt-3 border-top">
+                    <p class="text-secondary mb-0 fs-6 lh-base">
+                        We believe every completed project is not just an achievement, but a foundation for the next opportunity. <br><strong>Totem Pole Creations</strong> continues to build stronger partnerships and create impactful solutions for businesses across different sectors.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

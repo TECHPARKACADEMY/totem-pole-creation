@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Internal CSS for Mission Page -->
+<style>
+    /* Header Banner - Royal Blue Background */
+    .mission-header-banner {
+        background-color: #003688 !important;
+        background: linear-gradient(135deg, #003688 0%, #002255 100%) !important;
+    }
+
+    /* Mission Custom Image Styling */
+    .mission-top-img {
+        max-width: 180px;
+        height: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .mission-top-img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Key Points Card Styling */
+    .mission-card {
+        border-left: 4px solid #003688 !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .mission-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    }
+    .mission-top-img {
+    max-width: 320px; /* Size-ai peridhaka 180px-il irundhu 320px-aga maatriyullom */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+</style>
+
+<!-- Blue Banner Header -->
+<div class="mission-header-banner text-white py-4 border-bottom border-danger">
+    <div class="container" data-aos="fade-right">
+        <h2 class="fw-bold text-uppercase mb-0 text-white">MISSION</h2>
+    </div>
+</div>
+
+<!-- Main Mission Section -->
+<div class="container py-5">
+    <div class="row justify-content-center text-center">
+        <div class="col-lg-8" data-aos="zoom-in">
+            
+            <!-- mission.png Image replacing the target icon -->
+            <div class="mb-3">
+                <img src="{{ url_for('static', filename='images/mission.png') }}" alt="Mission Target" class="mission-top-img img-fluid">
+            </div>
+
+            <!-- Heading & Quote -->
+            <h3 class="fw-bold text-dark mb-3">Our Mission Target</h3>
+            <p class="lead text-secondary ">
+               <b> "To work towards the year of 2025 with everyone working in TOTEM POLE CREATIONS, understanding the future goals of the organization."
+            </b></p>
+
+            <!-- 4 Key Points Cards -->
+            <div class="row g-3 text-start">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mission-card p-3 bg-white border rounded-3 shadow-sm d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-danger fs-5 me-3"></i>
+                        <span class="fw-semibold text-dark">Team Collaboration</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mission-card p-3 bg-white border rounded-3 shadow-sm d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-danger fs-5 me-3"></i>
+                        <span class="fw-semibold text-dark">Customer Focus</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mission-card p-3 bg-white border rounded-3 shadow-sm d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-danger fs-5 me-3"></i>
+                        <span class="fw-semibold text-dark">Innovation & Excellence</span>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="mission-card p-3 bg-white border rounded-3 shadow-sm d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill text-danger fs-5 me-3"></i>
+                        <span class="fw-semibold text-dark">Future Readiness</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
